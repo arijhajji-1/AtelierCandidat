@@ -14,12 +14,13 @@ public class CandidatRestApi {
 
 
     @PostMapping
-    public ResponseEntity<Candidat> createCandidat(Candidat candidat) {
+    public ResponseEntity<Candidat> createCandidat(@RequestBody Candidat candidat) {
         return new ResponseEntity<Candidat>(candidatServices.addCandidat(candidat), HttpStatus.CREATED);
     }
-@PutMapping(value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Candidat> updateCandidat(@RequestBody Candidat candidat, @PathVariable (value = "id") int id) {
-        return new ResponseEntity<Candidat>(candidatServices.updateCandidat(candidat,id), HttpStatus.CREATED);
+
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Candidat> updateCandidat(@RequestBody Candidat candidat, @PathVariable(value = "id") int id) {
+        return new ResponseEntity<Candidat>(candidatServices.updateCandidat(candidat, id), HttpStatus.CREATED);
     }
     @DeleteMapping(value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> deleteCandidat(@PathVariable (value = "id") int id) {

@@ -1,9 +1,11 @@
 package com.example.candidate;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CandidatServices {
+    @Autowired
     private CandidatRepository candidatRepository;
 
 
